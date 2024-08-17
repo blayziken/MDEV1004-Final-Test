@@ -106,8 +106,8 @@ passport.use(strategy);
 
 app.use('/api', indexRouter);
 /* Example: Secure the song routes with JWT authentication */
-// app.use('/api/song', passport.authenticate('jwt', {session: false}), songRouter);
-app.use('/api/song', songRouter);
+app.use('/api/song', passport.authenticate('jwt', {session: false}), songRouter);
+// app.use('/api/song', songRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
