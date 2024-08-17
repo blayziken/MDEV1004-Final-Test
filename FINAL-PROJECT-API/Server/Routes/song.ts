@@ -5,24 +5,24 @@ import passport from 'passport';
 import { DisplaySongsList, DisplaySongById, AddSong, UpdateSong, DeleteSong } from '../Controllers/songs';
 
 
-/* List of Movie Routes (endpoints) */
+/* List of Song Routes (endpoints) */
 
-/* GET Movie List - fallback in case /list is not used */
+/* GET Song List - fallback in case /list is not used */
 router.get('/', (req, res, next) => {  DisplaySongsList(req, res, next); });
 
-/* GET Movie List. */
+/* GET Song List. */
 router.get('/list', (req, res, next) => {  DisplaySongsList(req, res, next); });
 
-/* GET Movie by ID. */
+/* GET Song by ID. */
 router.get('/find/:id', (req, res, next) => {  DisplaySongById(req, res, next); });
 
-/* Add Movie */
+/* Add Song */
 router.post('/add', passport.authenticate('jwt', {session: false}), (req, res, next) => {  AddSong(req, res, next); });
 
-/* Update Movie */
+/* Update Song */
 router.put('/update/:id', passport.authenticate('jwt', {session: false}), (req, res, next) => {  UpdateSong(req, res, next); });
 
-/* Delete Movie */
+/* Delete Song */
 router.delete('/delete/:id', passport.authenticate('jwt', {session: false}), (req, res, next) => {  DeleteSong(req, res, next); });
 
 

@@ -41,7 +41,7 @@ mongoose.connection.on('connected', () => {
 
 
 import indexRouter from '../Routes/index';
-import movieRouter from '../Routes/movie';
+import songRouter from '../Routes/song';
 
 import { dot } from 'node:test/reporters';
 
@@ -101,13 +101,13 @@ let strategy = new JWTStrategy(jwtOptions, (jwt_payload, done) =>
   }
 });
 
-// deploy the strategy
+// deploy the strategy.
 passport.use(strategy);
 
 app.use('/api', indexRouter);
-/* Example: Secure the movie routes with JWT authentication */
-app.use('/api/movie', passport.authenticate('jwt', {session: false}), movieRouter);
-// app.use('/api/movie', movieRouter);
+/* Example: Secure the song routes with JWT authentication */
+// app.use('/api/song', passport.authenticate('jwt', {session: false}), songRouter);
+app.use('/api/song', songRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -14,4 +14,4 @@ router.post('/add', passport_1.default.authenticate('jwt', { session: false }), 
 router.put('/update/:id', passport_1.default.authenticate('jwt', { session: false }), (req, res, next) => { (0, songs_1.UpdateSong)(req, res, next); });
 router.delete('/delete/:id', passport_1.default.authenticate('jwt', { session: false }), (req, res, next) => { (0, songs_1.DeleteSong)(req, res, next); });
 exports.default = router;
-//# sourceMappingURL=movie.js.map
+//# sourceMappingURL=song.js.map
